@@ -20,7 +20,7 @@ while  life >= 0:
         print("Congratulations, you won!")
         break
     elif life == 0:
-        print(f"Unfortunately, you lost this time! That word was: {word_list}")
+        print(f"Unfortunately, you lost this time! That word was: {word}")
         break
     else:
         letter = input("Please type any letter from a to z \n").lower()
