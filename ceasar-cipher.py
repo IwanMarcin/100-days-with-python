@@ -24,9 +24,29 @@ def encrypt(text, shift):
     encrypt_letters = "".join(encrypt_letters)
     print(f"The encoded text is {encrypt_letters}")
 
+def decrypt(text, shift):
+    index_list = []
+    for i in range (0, len(text)):
+        if text[i] in alphabet:
+            index_list.append(alphabet.index(text[i]))
+
+    for i in range (0, len(index_list)):
+        index_list[i]-= shift
+        
+    for i in range (0, len(index_list)):
+        while index_list[i] < -26:
+            index_list[i] += 26
+        
+    encrypt_letters = []
+    for i in range (0, len(index_list)):
+        encrypt_letters.append(alphabet[index_list[i]])
+
+    encrypt_letters = "".join(encrypt_letters)
+    print(f"The encoded text is {encrypt_letters}")
+
 if direction == "encode":
     encrypt(text, shift)
 elif direction == "decode":
-    print("Sorry, this feature has not been written yet 😔")
+    decrypt(text, shift)
 else:
     print("Make sure you have typed the command correctly: 'encode' or 'decode'! ")
